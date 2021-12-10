@@ -2,9 +2,9 @@ import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Constants from 'expo-constants';
-import Zona1 from "../Screens/Labs/Zona1";
-import Zona2 from "../Screens/Labs/Zona2";
-import Zona3 from "../Screens/Labs/Zona3";
+import StackLabs from "./StackLabs";
+import StackLabs2 from "./StackLabs2";
+import StackLabs3 from "./StackLabs3";
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -30,7 +30,7 @@ export default function LabsTop(){
         >
             <Tab.Screen
             name="Zona1"
-            component={Zona1}
+            component={StackLabs}
             options={{
                 headerShown: false,
                 tabBarLabel:"Zona 1",
@@ -42,7 +42,7 @@ export default function LabsTop(){
             />
             <Tab.Screen
             name="Zona2"
-            component={Zona2}
+            component={StackLabs2}
             options={{
                 headerShown: false,
                 tabBarLabel:"Zona 2",
@@ -53,7 +53,7 @@ export default function LabsTop(){
             />
              <Tab.Screen
             name="Zona3"
-            component={Zona3}
+            component={StackLabs3}
             options={{
                 headerShown: false,
                 tabBarLabel:"Zona 3",

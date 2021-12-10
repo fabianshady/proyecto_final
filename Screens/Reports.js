@@ -1,51 +1,53 @@
-import React from "react";
-import { StyleSheet, View, Button } from "react-native";
+import React, {useContext} from "react";
+import { StyleSheet, View, Button, Image } from "react-native";
 import { Text } from 'react-native-elements';
 import { StatusBar } from 'expo-status-bar';
+import { FContext } from "../Navigations/Context/Context";
 
 
 const Reports = ({ navigation }) => {
+  const {getReportlab, getReportproy, setCondi} = useContext(FContext);
+
+  var today = new Date();
+  var hoy = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+  var ayer = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + (today.getDate() - 1);
+  var antier = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + (today.getDate() - 2);
+
+
   return (
     <View style={styles.container3}>
-      <View style={styles.container}>
-        <Text h1 style={styles.font}>Reportes</Text>
-        <Text h4 style={styles.font}>Laboratorios</Text>
-
-        <StatusBar style="auto" />
-
-
-      </View>
+      <Text h1 style={styles.font}>Reportes</Text>
+      <Image
+            style={{
+              resizeMode: "contain",
+              width: 420,
+              height: 260,
+            }}
+            source={require('../analytics.png')} />
       <View style={styles.container2}>
+      <Text h4 style={styles.font}>Laboratorios</Text>
         <Button
           title="Hoy"
-          onPress={() => navigation.navigate('Onstack1')}
+          onPress={() => {navigation.navigate('ViewReports'); getReportlab(hoy); setCondi(true)}}
         />
         <Button title="Ayer"
-          onPress={() => navigation.navigate('Os2')}
+          onPress={() => {navigation.navigate('ViewReports'); getReportlab(ayer); setCondi(true)}}
         />
         <Button title="Antier"
-          onPress={() => navigation.navigate('Os2')}
+          onPress={() => {navigation.navigate('ViewReports'); getReportlab(antier); setCondi(true)}}
         />
-      </View>
-
-      <View style={styles.container}>
-        <Text h1 style={styles.font}>Reportes</Text>
-        <Text h4 style={styles.font}>Proyectores</Text>
-
-        <StatusBar style="auto" />
-
-
       </View>
       <View style={styles.container2}>
+      <Text h4 style={styles.font}>Proyectores</Text>
         <Button
           title="Hoy"
-          onPress={() => navigation.navigate('Onstack1')}
+          onPress={() => {navigation.navigate('ViewReports'); getReportproy(hoy); setCondi(true)}}
         />
         <Button title="Ayer"
-          onPress={() => navigation.navigate('Os2')}
+          onPress={() => {navigation.navigate('ViewReports'); getReportproy(ayer); setCondi(true)}}
         />
         <Button title="Antier"
-          onPress={() => navigation.navigate('Os2')}
+          onPress={() => {navigation.navigate('ViewReports'); getReportproy(antier); setCondi(true)}}
         />
       </View>
 
@@ -57,29 +59,22 @@ const Reports = ({ navigation }) => {
 export default Reports;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 0,
-    backgroundColor: '#FFC659',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-
-  },
   container2: {
     flex: 0,
-    backgroundColor: '#FFC659',
+    backgroundColor: '#fff',
 
     justifyContent: 'space-around',
     flexDirection: 'row',
   },
   container3: {
     flex: 1,
-    backgroundColor: '#FFC659',
+    backgroundColor: '#fff',
 
     justifyContent: 'space-around',
   },
   font: {
     fontSize: 25,
-
+    textAlign:'center'
   }
 });
 

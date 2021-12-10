@@ -5,7 +5,7 @@ import { FContext } from '../../Navigations/Context/Context';
 import { Text, Card } from 'react-native-elements';
 
 
-export default function Zona1() {
+export default function Zona1({navigation}) {
   const [labs1, setLabs1] = useState([])
   useEffect(() => {
     const getLabs1 = () => {
@@ -15,7 +15,7 @@ export default function Zona1() {
     }
     getLabs1()
   }, [])
-  const { } = useContext(FContext);
+  const {setCond,setCurrentlab} = useContext(FContext);
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -32,14 +32,15 @@ export default function Zona1() {
               <View style={styles.container3}>
                 <Card.Image style={styles.image} source={require('../../icono.png')} />
                 <View style={{paddingTop:10}}>
-                <Text style={{backgroundColor: p.disponible === 1 ? 'green' : 'red', color:'white', width:150, borderRadius:10}}>{
-                  p.disponible === 1 ? "          Disponible" : "No disponible"
+                <Text style={{backgroundColor: p.disponible === 1 ? 'green' : 'red', color:'white', width:150, borderRadius:10, textAlign: 'center'}}>{
+                  p.disponible === 1 ? "Disponible" : "No disponible"
                 }</Text>
                 </View>
                 <View style={{paddingTop:10}}>
                 <Button
                   title={p.disponible === 1 ? "Asignar" : "Quien lo tiene?"}
                   color="black"
+                  onPress={() => {setCond(true); setCurrentlab(p.id_lab); p.disponible === 1 ? navigation.navigate('AsignarLabs'):navigation.navigate('ViewLabs')}}
                 />
                 </View>
               </View>

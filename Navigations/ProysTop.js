@@ -2,9 +2,9 @@ import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Constants from 'expo-constants';
-import Zona11 from "../Screens/Proys/Zona11";
-import Zona22 from "../Screens/Proys/Zona22";
-import Zona33 from "../Screens/Proys/Zona33";
+import StackProys from "./StackProys";
+import StackProys2 from "./StackProys2";
+import StackProys3 from "./StackProys3";
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -30,7 +30,7 @@ export default function ProysTop(){
         >
             <Tab.Screen
             name="Zona1"
-            component={Zona11}
+            component={StackProys}
             options={{
                 headerShown: false,
                 tabBarLabel:"Zona 1",
@@ -42,7 +42,7 @@ export default function ProysTop(){
             />
             <Tab.Screen
             name="Zona2"
-            component={Zona22}
+            component={StackProys2}
             options={{
                 headerShown: false,
                 tabBarLabel:"Zona 2",
@@ -53,7 +53,7 @@ export default function ProysTop(){
             />
              <Tab.Screen
             name="Zona3"
-            component={Zona33}
+            component={StackProys3}
             options={{
                 headerShown: false,
                 tabBarLabel:"Zona 3",

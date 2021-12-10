@@ -2,8 +2,8 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import StackN from "./stack";
-import LabsTop from "./LabsTop";
 import ProysTop from "./ProysTop";
+import LabsTop from "./LabsTop";
 import Home from "../Screens/Home";
 
 
